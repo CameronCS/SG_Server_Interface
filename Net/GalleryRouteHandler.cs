@@ -37,8 +37,8 @@ namespace SG_Server_Interface.Net {
             return @return;
         }
 
-        public async Task<GetYearResponse> GetYears() {
-            string url = $"{this.API_URL}{this.Route}/get-years";
+        public async Task<GetYearResponse> GetYears(string year) {
+            string url = $"{this.API_URL}{this.Route}/get-years?year=${year}";
             GetYearResponse @return = await GalleryHandlerRaw.GetEventYears(url);
             return @return;
         }
