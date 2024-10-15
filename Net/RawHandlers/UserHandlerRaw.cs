@@ -8,6 +8,7 @@ using SG_Server_Interface.Responses.UserResponseRoutes.UsernameAvaliable;
 using SG_Server_Interface.Responses.UserResponseRoutes.SearchSpecific;
 using SG_Server_Interface.Responses.UserResponseRoutes.ResetPassword;
 using SG_Server_Interface.Responses.UserResponseRoutes.DeleteUser;
+using SG_Server_Interface.Responses.UserResponseRoutes;
 
 namespace SG_Server_Interface.Net.RawHandlers {
     public class UserHandlerRaw {
@@ -90,6 +91,20 @@ namespace SG_Server_Interface.Net.RawHandlers {
             HttpStatusCode code = res.StatusCode;
 
             SearchAllUsernamesResponse @return = new(res_raw, (int)code);
+            return @return;
+        }
+
+        public static async Task<ParentContactResponse> GetParentContact(string url) {
+            HttpResponseMessage res = await client.GetAsync(url) 
+            ??
+            throw new BadResponseExcpetion("HTTP response came back Null Check URLS before posting");
+
+            ParentContactResponseRaw raw = await res.Content.ReadFromJsonAsync<ParentContactResponseRaw>()
+            ??
+            throw new BadResponseExcpetion("HTTP response came back Null Check URLS before posting");
+
+            HttpStatusCode code = res.StatusCode;
+            ParentContactResponse @return = new(raw, (int)code);
             return @return;
         }
 

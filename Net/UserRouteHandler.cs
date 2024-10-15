@@ -12,6 +12,8 @@ using SG_Server_Interface.Request;
 using SG_Server_Interface.Net.RawHandlers;
 using SG_Server_Interface.Responses.UserResponseRoutes.SearchAll;
 using SG_Server_Interface.Responses.UserResponseRoutes.AddUser;
+using SG_Server_Interface.Classes;
+using SG_Server_Interface.Responses.UserResponseRoutes.UsernameAvaliable;
 
 namespace SG_Server_Interface.Net
 {
@@ -41,6 +43,11 @@ namespace SG_Server_Interface.Net
             return @return;
         }
 
+        public async Task<ParentContactResponse> GetParentContact(int child_id) {
+            string url = $"{this.API_URL}{this.Route}/get-contact?child_id={child_id}";
+            ParentContactResponse @return = await UserHandlerRaw.GetParentContact(url);
+            return @return;
+        }
 
     }
 }
