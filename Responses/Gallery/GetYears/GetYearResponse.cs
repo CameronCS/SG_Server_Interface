@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SG_Server_Interface.Responses.Gallery.GetYears {
     public class GetYearResponse {
-        public GalleryYear Years {
+        public List<string> Years {
             get; set;
         }
 
@@ -19,7 +19,7 @@ namespace SG_Server_Interface.Responses.Gallery.GetYears {
             get; set;
         }
 
-        public GetYearResponse(GalleryYear years, string message, int code) {
+        public GetYearResponse(List<string> years, string message, int code) {
             this.Years = years;
             this.Message = message;
             this.Code = code;

@@ -6,18 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SG_Server_Interface.Responses.Gallery.GetYears {
-    internal class GetYearResponseRaw {
-        public GalleryYear results {
+    public class GetYearResponseRaw {
+        public List<string> results {
             get; set;
-        }
-
+        }  // List of strings, simple
         public string message {
             get; set;
         }
 
-        public GetYearResponseRaw(GalleryYear results, string message) {
+        public GetYearResponseRaw(List<string> results, string message) {
             this.results = results;
             this.message = message;
         }
     }
+
 }
