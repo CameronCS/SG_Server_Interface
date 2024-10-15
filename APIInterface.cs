@@ -26,5 +26,6 @@ namespace SG_Server_Interface {
             this.ResourceRoute =    new(this.API_URL, "/resources");
             this.GalleryRoute =     new(this.API_URL, "/gallery");
         }
+        // Adding a comment
     }
 }
