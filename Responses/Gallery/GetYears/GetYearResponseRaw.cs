@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SG_Server_Interface.Responses.Gallery.GetYears {
     internal class GetYearResponseRaw {
-        public List<GalleryYear> results {
+        public GalleryYear results {
             get; set;
         }
 
@@ -15,7 +15,7 @@ namespace SG_Server_Interface.Responses.Gallery.GetYears {
             get; set;
         }
 
-        public GetYearResponseRaw(List<GalleryYear> results, string message) {
+        public GetYearResponseRaw(GalleryYear results, string message) {
             this.results = results;
             this.message = message;
         }
