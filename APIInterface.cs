@@ -18,6 +18,7 @@ namespace SG_Server_Interface {
         public readonly ResourceRouteHandler    ResourceRoute;
         public readonly GalleryRouteHandler     GalleryRoute;
         public readonly CalendarRouteHandler    CallendarRoute;
+        public readonly NewsletterRouteHandler  NewsletterRoute;
         public APIInterface() {
             this.API_URL = $"http://{this.ADDR}:{this.PORT}";
             // Routes 
@@ -27,6 +28,7 @@ namespace SG_Server_Interface {
             this.ResourceRoute =    new(this.API_URL, "/resources");
             this.GalleryRoute =     new(this.API_URL, "/gallery");
             this.CallendarRoute =   new(this.API_URL, "/calendar");
+            this.NewsletterRoute =  new(this.API_URL, "/newsletters")
         }
     }
 }
