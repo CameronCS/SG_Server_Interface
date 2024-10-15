@@ -13,10 +13,10 @@ namespace SG_Server_Interface.Net {
         private string API_URL = API_URL;
         private string Route = Route;
 
-        public async Task<AddResourceResponse> AddResource(string title, string admin_username, string file_path_or_text, bool isFile) {
+        public async Task<AddResourceResponse> AddResource(string title, string type, string admin_username, string file_path_or_text, bool isFile) {
             Dictionary<string, string> data = RequestHandler.Objectify(
-                ["title", "uploaded_by"],
-                [title, admin_username]
+                ["title", "uploaded_by", "type"],
+                [title, admin_username, type]
             );
 
             string url = $"{this.API_URL}{this.Route}/add";
