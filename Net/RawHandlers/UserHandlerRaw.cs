@@ -25,7 +25,8 @@ namespace SG_Server_Interface.Net.RawHandlers
                 // Read the image file into byte array
                 byte[] imageData = File.ReadAllBytes(imagePath);
                 ByteArrayContent image = new ByteArrayContent(imageData);
-                image.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue($"image/{imagePath.Split()[imagePath.Split().Count() - 1]}"); // Adjust based on image type
+                string[] ext = imagePath.Split('.');
+                image.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue($"image/{ext[^1].ToUpper()}"); // Adjust based on image type
 
                 // Add image to the form with a name, and file name
                 form.Add(image, "image", Path.GetFileName(imagePath));
