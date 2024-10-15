@@ -24,8 +24,8 @@ namespace SG_Server_Interface.Net {
             AddEventResponse @return = await GalleryHandlerRaw.AddEvent(url, req_body, image_path);
             return @return;
         }
-        public async Task<GetEventNamesResponse> GetEventNames() {
-            string url = $"{this.API_URL}{this.Route}/get-names";
+        public async Task<GetEventNamesResponse> GetEventNames(string year) {
+            string url = $"{this.API_URL}{this.Route}/get-names?year={year}";
             GetEventNamesResponse @return = await GalleryHandlerRaw.GetEventNames(url);
             return @return;
         }
@@ -37,8 +37,8 @@ namespace SG_Server_Interface.Net {
             return @return;
         }
 
-        public async Task<GetYearResponse> GetYears(string year) {
-            string url = $"{this.API_URL}{this.Route}/get-years?year=${year}";
+        public async Task<GetYearResponse> GetYears() {
+            string url = $"{this.API_URL}{this.Route}/get-years";
             GetYearResponse @return = await GalleryHandlerRaw.GetEventYears(url);
             return @return;
         }
