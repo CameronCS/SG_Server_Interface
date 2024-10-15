@@ -8,7 +8,7 @@ using SG_Server_Interface.Responses.UserResponseRoutes.UsernameAvaliable;
 using SG_Server_Interface.Responses.UserResponseRoutes.SearchSpecific;
 using SG_Server_Interface.Responses.UserResponseRoutes.ResetPassword;
 using SG_Server_Interface.Responses.UserResponseRoutes.DeleteUser;
-using SG_Server_Interface.Responses.UserResponseRoutes.ParentContact;
+using SG_Server_Interface.Responses.UserResponseRoutes.GetParentContact;
 
 namespace SG_Server_Interface.Net.RawHandlers
 {

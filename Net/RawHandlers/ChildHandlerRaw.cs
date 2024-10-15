@@ -32,7 +32,8 @@ namespace SG_Server_Interface.Net.RawHandlers {
 
                 // Send the POST request
                 HttpResponseMessage res = await client.PostAsync(url, form)
-                ?? throw new BadResponseExcpetion("HTTP Response Came Back NULL");
+                ?? 
+                throw new BadResponseExcpetion("HTTP Response Came Back NULL");
 
                 // Deserialize the response body
                 AddChildResponseRaw? raw = await res.Content.ReadFromJsonAsync<AddChildResponseRaw>()
