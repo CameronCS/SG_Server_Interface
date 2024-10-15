@@ -2,7 +2,7 @@
 
 namespace SG_Server_Interface {
     public class APIInterface {
-        private readonly string ADDR = "192.168.0.164";
+        private readonly string ADDR = "192.168.0.187";
         //private readonly string ADDR = "10.200.230.177";
         private readonly string PORT = "3000";
         private readonly string API_URL;
