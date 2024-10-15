@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SG_Server_Interface.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SG_Server_Interface.Responses.Gallery.GetYears {
     public class GetYearResponse {
-        public List<string> Years {
+        public List<GalleryYear> Years {
             get; set;
         }
 
