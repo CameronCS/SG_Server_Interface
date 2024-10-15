@@ -2,6 +2,7 @@
 using SG_Server_Interface.Responses.Gallery.AddEvents;
 using SG_Server_Interface.Responses.Gallery.GetAllIImages;
 using SG_Server_Interface.Responses.Gallery.GetEvents;
+using SG_Server_Interface.Responses.Gallery.GetYears;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,6 @@ namespace SG_Server_Interface.Net.RawHandlers {
             return @return;
         }
 
-
         public static async Task<GetEventNamesResponse> GetEventNames(string url) {
             HttpResponseMessage res = await client.GetAsync(url)
             ??
@@ -70,6 +70,20 @@ namespace SG_Server_Interface.Net.RawHandlers {
 
             HttpStatusCode code = res.StatusCode;
             GetAllImagesResponse @return = new(raw, (int)code);
+            return @return;
+        }
+
+        public static async Task<GetYearResponse> GetEventYears(string url) {
+            HttpResponseMessage res = await client.GetAsync(url)
+            ??
+            throw new BadResponseExcpetion("Response Came back null check url before posting");
+
+            GetYearResponseRaw? raw = await res.Content.ReadFromJsonAsync<GetYearResponseRaw>()
+            ??
+            throw new BadResponseExcpetion("Response Came back null check url before posting");
+
+            HttpStatusCode code = res.StatusCode;
+            GetYearResponse @return = new(raw, (int)code);
             return @return;
         }
     }

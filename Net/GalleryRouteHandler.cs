@@ -3,6 +3,7 @@ using SG_Server_Interface.Request;
 using SG_Server_Interface.Responses.Gallery.AddEvents;
 using SG_Server_Interface.Responses.Gallery.GetAllIImages;
 using SG_Server_Interface.Responses.Gallery.GetEvents;
+using SG_Server_Interface.Responses.Gallery.GetYears;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace SG_Server_Interface.Net {
             string url = $"{this.API_URL}{this.Route}/get?year={year}";
             Dictionary<string, string> req_body = RequestHandler.Objectify(["event_name"], [event_name]);
             GetAllImagesResponse @return = await GalleryHandlerRaw.GetAllImages(url, req_body);
+            return @return;
+        }
+
+        public async Task<GetYearResponse> GetYears() {
+            string url = $"{this.API_URL}{this.Route}/get-years";
+            GetYearResponse @return = await GalleryHandlerRaw.GetEventYears(url);
             return @return;
         }
     }
