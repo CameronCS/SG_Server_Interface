@@ -14,7 +14,7 @@ namespace SG_Server_Interface.Net {
         private readonly string Route = Route;
 
         public async Task<GetNewslettersResponse> GetNewsletters() {
-            string url = $"{this.API_URL}{this.Route}";
+            string url = $"{this.API_URL}{this.Route}/get";
             GetNewslettersResponse @return = await NewsletterHandlerRaw.GetNewsletters(url);
             return @return;
         }
