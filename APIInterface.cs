@@ -1,9 +1,13 @@
-﻿using SG_Server_Interface.Net;
+﻿#define c
+using SG_Server_Interface.Net;
 
 namespace SG_Server_Interface {
     public class APIInterface {
+#if c
         private readonly string ADDR = "192.168.0.187";
-        //private readonly string ADDR = "10.200.230.177";
+#elif m
+        private readonly string ADDR = "192.168.0.164";
+#endif
         private readonly string PORT = "3000";
         private readonly string API_URL;
 
