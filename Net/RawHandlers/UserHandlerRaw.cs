@@ -8,9 +8,10 @@ using SG_Server_Interface.Responses.UserResponseRoutes.UsernameAvaliable;
 using SG_Server_Interface.Responses.UserResponseRoutes.SearchSpecific;
 using SG_Server_Interface.Responses.UserResponseRoutes.ResetPassword;
 using SG_Server_Interface.Responses.UserResponseRoutes.DeleteUser;
-using SG_Server_Interface.Responses.UserResponseRoutes;
+using SG_Server_Interface.Responses.UserResponseRoutes.ParentContact;
 
-namespace SG_Server_Interface.Net.RawHandlers {
+namespace SG_Server_Interface.Net.RawHandlers
+{
     public class UserHandlerRaw {
         public static HttpClient client = new();
 

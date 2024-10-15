@@ -13,7 +13,7 @@ using SG_Server_Interface.Net.RawHandlers;
 using SG_Server_Interface.Responses.UserResponseRoutes.SearchAll;
 using SG_Server_Interface.Responses.UserResponseRoutes.AddUser;
 using SG_Server_Interface.Classes;
-using SG_Server_Interface.Responses.UserResponseRoutes.UsernameAvaliable;
+using SG_Server_Interface.Responses.UserResponseRoutes.ParentContact;
 
 namespace SG_Server_Interface.Net
 {
