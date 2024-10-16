@@ -14,6 +14,7 @@ using SG_Server_Interface.Responses.UserResponseRoutes.SearchAll;
 using SG_Server_Interface.Responses.UserResponseRoutes.AddUser;
 using SG_Server_Interface.Classes;
 using SG_Server_Interface.Responses.UserResponseRoutes.GetParentContact;
+using SG_Server_Interface.Responses.UserResponseRoutes.ResetPassword;
 
 namespace SG_Server_Interface.Net
 {
@@ -49,5 +50,14 @@ namespace SG_Server_Interface.Net
             return @return;
         }
 
+        public async Task<ResetPasswordResponse> ResetPassword(string username, string current_pass, string new_pass) {
+            string url = $"{this.API_URL}{this.Route}/reset-password";
+            Dictionary<string, string> body = RequestHandler.Objectify(
+                ["username", "current_pass", "new_pass"], 
+                [username, current_pass, new_pass]
+            );
+            ResetPasswordResponse @return = await UserHandlerRaw.ResetPassword(url, body);
+            return @return;
+        }
     }
 }
