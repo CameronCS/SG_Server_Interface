@@ -13,10 +13,10 @@ namespace SG_Server_Interface.Net {
             return @return;
         }
 
-        public async Task<AddCalendarResponse> AddCalenderEvent(string title, string desc, DateTime date) {
+        public async Task<AddCalendarResponse> AddCalenderEvent(string title, string desc, string date) {
             Dictionary<string, string> body = RequestHandler.Objectify(
                 ["title", "description", "event_date"], 
-                [title, desc, $"{date}"]
+                [title, desc, date]
             );
 
             string url = $"{this.API_URL}{this.Route}/add";
