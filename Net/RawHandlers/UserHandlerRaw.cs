@@ -9,6 +9,7 @@ using SG_Server_Interface.Responses.UserResponseRoutes.SearchSpecific;
 using SG_Server_Interface.Responses.UserResponseRoutes.ResetPassword;
 using SG_Server_Interface.Responses.UserResponseRoutes.DeleteUser;
 using SG_Server_Interface.Responses.UserResponseRoutes.GetParentContact;
+using SG_Server_Interface.Responses.UserResponseRoutes.ForgotPassword;
 
 namespace SG_Server_Interface.Net.RawHandlers
 {
@@ -139,6 +140,22 @@ namespace SG_Server_Interface.Net.RawHandlers
             HttpStatusCode code = res.StatusCode;
 
             ResetPasswordResponse @return = new(res_raw, (int)code);
+            return @return;
+        }
+
+        public static async Task<ForgotPasswordResponse> ForgotPassword(string url, Dictionary<string, string> req_body) {
+            FormUrlEncodedContent data = new(req_body);
+
+            HttpResponseMessage res = await client.PutAsync(url, data)
+            ??
+            throw new BadResponseExcpetion("HTTP response came back Null Check URLS before posting");
+
+            ForgotPasswordResponseRaw raw = await res.Content.ReadFromJsonAsync<ForgotPasswordResponseRaw>()
+            ??
+            throw new BadResponseExcpetion("HTTP response came back Null Check URLS before posting");
+
+            HttpStatusCode status = res.StatusCode;
+            ForgotPasswordResponse @return = new(raw, (int)status);
             return @return;
         }
 
