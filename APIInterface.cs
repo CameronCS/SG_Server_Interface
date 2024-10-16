@@ -28,7 +28,7 @@ namespace SG_Server_Interface {
             this.ResourceRoute =    new(this.API_URL, "/resources");
             this.GalleryRoute =     new(this.API_URL, "/gallery");
             this.CallendarRoute =   new(this.API_URL, "/calendar");
-            this.NewsletterRoute =  new(this.API_URL, "/newsletters")
+            this.NewsletterRoute =  new(this.API_URL, "/newsletters");
         }
     }
 }
