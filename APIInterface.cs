@@ -4,7 +4,7 @@ using SG_Server_Interface.Net;
 namespace SG_Server_Interface {
     public class APIInterface {
 #if c
-        private readonly string ADDR = "192.168.0.187";
+        private readonly string ADDR = "192.168.45.239";
 #elif m
         private readonly string ADDR = "192.168.0.164";
 #endif
